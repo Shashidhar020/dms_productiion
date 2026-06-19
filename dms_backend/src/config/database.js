@@ -7,6 +7,9 @@ export const db = mysql.createPool({
   user: env.dbUser,
   password: '',
   database: env.dbName,
+  ssl: {
+    ca: fs.readFileSync("./ca.pem"),
+  },
   port: env.dbPort,
   waitForConnections: true,
   connectionLimit: 10,
