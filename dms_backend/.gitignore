@@ -1,0 +1,33 @@
+# Ignore all env files (anywhere in project)
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+# Dependencies
+node_modules/
+# Logs
+logs
+*.log
+npm-debug.log*
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+# Coverage
+coverage/
+# Build output
+dist/
+build/
+# OS files
+.DS_Store
+Thumbs.db
+# Editor
+.vscode/
+.idea/
+
+# Misc
+*.tgz
+*.local
+uploads/
