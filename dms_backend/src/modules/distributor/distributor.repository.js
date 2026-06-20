@@ -107,7 +107,7 @@ export class DistributorRepository {
   // GENERATE DISTRIBUTOR CODE USING PRIMARY KEY ID
   async updateDistributorCode(connection, distributorId) {
     const distributorCode = `DST${String(distributorId).padStart(4, "0")}`;
-
+    console.log(distributorCode)
     await connection.query(
       `
       UPDATE distributors

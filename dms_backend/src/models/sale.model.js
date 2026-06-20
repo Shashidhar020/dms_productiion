@@ -557,7 +557,7 @@ export const getSalesWithPartyDetails = async (scope) => {
 
       whereClause = `
         WHERE i.manufacturer_id = ?
-        AND i.voucher_type = "Sales"
+        AND i.voucher_type = 'Sales'
       `;
 
       params = [manufacturerId];
@@ -571,7 +571,7 @@ export const getSalesWithPartyDetails = async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
         AND i.distributor_id = ?
-        AND i.voucher_type = "Sales"
+        AND i.voucher_type = 'Sales'
       `;
 
       params = [manufacturerId, distributorId];
@@ -932,7 +932,7 @@ export const getdashboardData = async (scope) => {
 
       whereClause = `
         WHERE i.manufacturer_id = ?
-        AND i.voucher_type = "Sales"
+        AND i.voucher_type = 'Sales'
       `;
 
       params = [manufacturerId];
@@ -953,7 +953,7 @@ export const getdashboardData = async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
         AND i.distributor_id = ?
-        AND i.voucher_type = "Sales"
+        AND i.voucher_type = 'Sales'
       `;
 
       params = [manufacturerId, distributorId];
@@ -1110,7 +1110,7 @@ export const getdashboardData = async (scope) => {
       JOIN vouchers i
         ON i.id = itm.voucher_id
        ${purchaseWhereClause} and
-     i.voucher_type = "Purchase" 
+     i.voucher_type = 'Purchase' 
     `, stockParams);
 
     const os = openingstock.openingStock || 0;
@@ -1218,7 +1218,7 @@ export const getFlatSalesReport = async (scope) => {
 
       whereClause = `
         WHERE i.manufacturer_id = ?
-        AND i.voucher_type = "Sales"
+        AND i.voucher_type = 'Sales'
       `;
 
       params = [
@@ -1234,7 +1234,7 @@ export const getFlatSalesReport = async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
         AND i.distributor_id = ?
-        AND i.voucher_type = "Sales"
+        AND i.voucher_type = 'Sales'
       `;
 
       params = [
@@ -1380,7 +1380,7 @@ export const getsalesSummary = async (scope) => {
 
       whereClause = `
         WHERE i.manufacturer_id = ?
-        AND i.voucher_type = "Sales"
+        AND i.voucher_type = 'Sales'
       `;
 
       params = [
@@ -1396,7 +1396,7 @@ export const getsalesSummary = async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
         AND i.distributor_id = ?
-        AND i.voucher_type = "Sales"
+        AND i.voucher_type = 'Sales'
       `;
 
       params = [

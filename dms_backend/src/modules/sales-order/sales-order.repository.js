@@ -495,7 +495,7 @@ export const getSOPartyDetails = async (scope) => {
 
       whereClause = `
         WHERE i.manufacturer_id = ?
-        AND i.voucher_type = "Sale Order"
+        AND i.voucher_type = 'Sale Order'
       `;
 
       params = [manufacturerId];
@@ -509,7 +509,7 @@ export const getSOPartyDetails = async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
         AND i.distributor_id = ?
-        AND i.voucher_type = "Sale Order"
+        AND i.voucher_type = 'Sale Order'
       `;
 
       params = [manufacturerId, distributorId];
@@ -814,7 +814,7 @@ const getFullSOView = async (invoiceUuid) => {
     return {
       invoice: {
         invoice_id: invoice.uuid,
-        voucher_name: "Sales order",
+        voucher_name: 'Sales order',
         voucher_number: invoice.voucher_number,
         invoice_date: invoice.invoice_date,
         effective_date: invoice.effective_date,
@@ -866,7 +866,7 @@ export const getFlatSOReport = async (scope) => {
 
       whereClause = `
         WHERE i.manufacturer_id = ?
-        AND i.voucher_type = "Sale Order"
+        AND i.voucher_type = 'Sale Order'
       `;
 
       params = [manufacturerId];
@@ -880,7 +880,7 @@ export const getFlatSOReport = async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
         AND i.distributor_id = ?
-        AND i.voucher_type = "Sale Order"
+        AND i.voucher_type = 'Sale Order'
       `;
 
       params = [manufacturerId, distributorId];
@@ -1022,7 +1022,7 @@ export const getSoData = async (scope) => {
 
       whereClause = `
         WHERE i.manufacturer_id = ?
-        AND i.voucher_type = "Sale Order"
+        AND i.voucher_type = 'Sale Order'
       `;
 
       params = [
@@ -1038,7 +1038,7 @@ export const getSoData = async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
         AND i.distributor_id = ?
-        AND i.voucher_type = "Sale Order"
+        AND i.voucher_type = 'Sale Order'
       `;
 
       params = [

@@ -237,7 +237,7 @@ export const getFlatPurchaseOrders = async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
   
-        AND i.voucher_type = "Purchase Order"
+        AND i.voucher_type = 'Purchase Order'
       `;
 
       params = [manufacturerId];
@@ -251,7 +251,7 @@ export const getFlatPurchaseOrders = async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
         AND i.distributor_id = ?
-        AND i.voucher_type = "Purchase Order"
+        AND i.voucher_type = 'Purchase Order'
       `;
 
       params = [manufacturerId, distributorId];
@@ -383,7 +383,7 @@ const getPoData= async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
   
-        AND i.voucher_type = "Purchase Order"
+        AND i.voucher_type = 'Purchase Order'
       `;
 
       params = [manufacturerId];
@@ -397,7 +397,7 @@ const getPoData= async (scope) => {
       whereClause = `
         WHERE i.manufacturer_id = ?
         AND i.distributor_id = ?
-        AND i.voucher_type = "Purchase Order"
+        AND i.voucher_type = 'Purchase Order'
       `;
 
       params = [manufacturerId, distributorId];

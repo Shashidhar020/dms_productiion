@@ -76,7 +76,7 @@ const getStockItems = async (scope) => {
     JOIN sales i 
       ON i.id = itm.sales_id
     ${whereClause}
-    AND i.voucher_type = "Sales"
+    AND i.voucher_type = 'Sales'
   `;
 
   // =========================
@@ -89,7 +89,7 @@ const getStockItems = async (scope) => {
     JOIN sales i 
       ON i.id = itm.sales_id
     ${whereClause}
-    AND i.voucher_type = "Sales"
+    AND i.voucher_type = 'Sales'
   `;
 
   const [[stockSold]] = await db.execute(stockSoldSql, params);
