@@ -43,427 +43,200 @@
 //     console.log("SMTP Server Ready");
 //   }
 // });
-
-// /**
-//  * Send OTP Email
-//  */
-// export const sendOTP = async (email, otp) => {
-//   try {
-//     const response = await transporter.sendMail({
-//       from: `"DMS System" <${process.env.EMAIL_USER}>`,
-//       to: email,
-//       subject: "Manufacturer Email Verification OTP",
-//       html: `
-//         <div style="font-family: Arial; padding: 20px; background:#f8f9fa;">
-//           <div style="max-width:500px;margin:auto;background:white;padding:30px;border-radius:10px;">
-            
-//             <h2>Email Verification</h2>
-
-//             <p>Use the OTP below to verify your email.</p>
-
-//             <div style="
-//               background:#f4f4f4;
-//               padding:18px;
-//               border-radius:8px;
-//               font-size:30px;
-//               font-weight:bold;
-//               text-align:center;
-//               letter-spacing:5px;
-//               margin:20px 0;">
-//               ${otp}
-//             </div>
-
-//             <p>This OTP will expire in <strong>5 minutes</strong>.</p>
-
-//             <p>If you did not request this, please ignore this email.</p>
-
-//           </div>
-//         </div>
-//       `,
-//     });
-
-//     console.log("OTP Email Sent:", response.messageId);
-
-//     return response;
-//   } catch (error) {
-//     console.error("OTP Email Error:", error);
-//     throw error;
-//   }
-// };
-
-// /**
-//  * Send API Key Email
-//  */
-
-// export const sendApiKey = async (email,apiKey,companyName,adminName) => {
-//   try {
-//     const response = await transporter.sendMail({
-//       from: `"DMS System" <${process.env.EMAIL_USER}>`,
-//       to: email,
-//       subject: "Your API Key",
-//       html: `
-//         <div style="font-family: Arial; padding:20px;">
-
-//           <h2>Welcome ${adminName}</h2>
-
-//           <p>
-//             Your account for
-//             <strong>${companyName}</strong>
-//             has been created successfully.
-//           </p>
-
-//           <p>Below is your API Key:</p>
-
-//           <div style="
-//             background:#f4f4f4;
-//             padding:15px;
-//             border-radius:5px;
-//             word-break:break-all;
-//             font-size:15px;">
-//             ${apiKey}
-//           </div>
-
-//           <br/>
-
-//           <p>
-//             Keep this API key secure.
-//             Do not share it publicly.
-//           </p>
-
-//         </div>
-//       `,
-//     });
-
-//     console.log("API Key Email Sent:", response.messageId);
-     
-//     return response;
-//   } catch (error) {
-//     console.error("API Key Email Error:", error);
-//     throw error;
-//   }
-// };
-
-// /**
-//  * Send Welcome / Password Email
-//  */
-// export const sendOnboardMessage = async (email,password,companyName,adminName) => {
-//   try {
-//     const response = await transporter.sendMail({
-//       from: `"DMS System" <${process.env.EMAIL_USER}>`,
-//       to: email,
-//       subject: "DMS Manufacturer Onboarding",
-//       html: `
-//         <div style="font-family: Arial; padding:20px;">
-
-//           <h2>Welcome ${adminName}</h2>
-
-//           <p>
-//             Your account for
-//             <strong>${companyName}</strong>
-//             has been created successfully.
-//           </p>
-
-//           <p>Temporary Password:</p>
-
-//           <div style="
-//             background:#f4f4f4;
-//             padding:15px;
-//             border-radius:5px;
-//             word-break:break-all;
-//             font-size:15px;">
-//             ${password}
-//           </div>
-
-//           <br/>
-
-//           <p>
-//             Please change your password after first login.
-//           </p>
-
-//         </div>
-//       `,
-//     });
-
-//     console.log("Onboarding Email Sent:", response.messageId);
-
-//     return response;
-//   } catch (error) {
-//     console.error("Password Email Error:", error);
-//     throw error;
-//   }
-// };
-
-// export const sendOldEmailNotification = async (oldEmail,newEmail) => {
-//   await transporter.sendMail({
-//     from: `"DMS System" <${process.env.EMAIL_USER}>`,
-//     to: oldEmail,
-//     subject: "Email Changed",
-//     html: `
-//       <h2>Email Changed</h2>
-
-//       <p>Your account email has been changed.</p>
-
-//       <p>
-//         New Email:
-//         <strong>${newEmail}</strong>
-//       </p>
-
-//       <p>
-//         If this wasn't you,
-//         contact support immediately.
-//       </p>
-//     `,
-//   });
-// };
-// export const sendNewEmailNotification = async (email) => {
-//   await transporter.sendMail({
-//     from: `"DMS System" <${process.env.EMAIL_USER}>`,
-//     to: email,
-//     subject: "Email Updated Successfully",
-//     html: `
-//       <h2>Email Updated</h2>
-
-//       <p>
-//         Your email has been updated successfully.
-//       </p>
-
-//       <p>
-//         You can now login using:
-//         <strong>${email}</strong>
-//       </p>
-//     `,
-//   });
-// };
-
-// export const sendPasswordChangedNotification = async ( email)=>{
-
-// await transporter.sendMail({
-
-// from:`"DMS System"<${process.env.EMAIL_USER}>`,
-
-// to:email,
-
-// subject:"Password Changed",
-
-// html:
-// `
-// <h2>Password Changed</h2>
-
-// <p>
-
-// Your account password has been changed.
-
-// </p>
-
-// <p>
-
-// If you did not perform this action, contact support
-// immediately.
-
-// </p>
-// `
-// });
-
-// };
-// export const sendEmailChangeLink = async (email, link) => {
-//   return transporter.sendMail({
-//     from: `${"DMS System".bold()} <${process.env.EMAIL_USER}>`,
-//     to: email,
-//     subject: "Verify your new email",
-//     html: `
-//       <h2>Email Change Request</h2>
-
-//       <p>You requested to change your email.</p>
-
-//       <p>Click below link to confirm:</p>
-
-//       <a href="${link}" style="
-//         display:inline-block;
-//         padding:10px 20px;
-//         background:#4CAF50;
-//         color:white;
-//         text-decoration:none;
-//         border-radius:5px;">
-//         Verify Email
-//       </a>
-
-//       <p>This link expires in 15 minutes.</p>
-
-//       <p>If this wasn't you, ignore this email.</p>
-//     `
-//   });
-// };
-
+import axios from "axios";
 import dotenv from "dotenv";
-import Brevo from "@getbrevo/brevo";
 
 dotenv.config();
 
-// Configure Brevo
-const apiInstance = new Brevo.TransactionalEmailsApi();
-
-apiInstance.setApiKey(
-  Brevo.TransactionalEmailsApiApiKeys.apiKey,
-  process.env.BREVO_API_KEY
-);
-
-/**
- * Generic email sender
- */
 const sendEmail = async ({ to, subject, html }) => {
   try {
-    const email = new Brevo.SendSmtpEmail();
-
-    email.sender = {
-      name: "DMS System",
-      email: process.env.EMAIL_USER,
-    };
-
-    email.to = [
+    const response = await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
       {
-        email: to,
+        sender: {
+          name: "DMS System",
+          email: process.env.EMAIL_USER,
+        },
+        to: [
+          {
+            email: to,
+          },
+        ],
+        subject,
+        htmlContent: html,
       },
-    ];
+      {
+        headers: {
+          accept: "application/json",
+          "api-key": process.env.BREVO_API_KEY,
+          "content-type": "application/json",
+        },
+      }
+    );
 
-    email.subject = subject;
-    email.htmlContent = html;
+    console.log("Email Sent:", response.data);
 
-    const response = await apiInstance.sendTransacEmail(email);
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Brevo Error:",
+      error.response?.data || error.message
+    );
+    throw error;
+  }
+};
+/**
+ * Send OTP Email
+ */
+export const sendOTP = async (email, otp) => {
+  try {
+    const response = await transporter.sendMail({
+      from: `"DMS System" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Manufacturer Email Verification OTP",
+      html: `
+        <div style="font-family: Arial; padding: 20px; background:#f8f9fa;">
+          <div style="max-width:500px;margin:auto;background:white;padding:30px;border-radius:10px;">
+            
+            <h2>Email Verification</h2>
 
-    console.log("Email Sent:", response.body?.messageId || response);
+            <p>Use the OTP below to verify your email.</p>
+
+            <div style="
+              background:#f4f4f4;
+              padding:18px;
+              border-radius:8px;
+              font-size:30px;
+              font-weight:bold;
+              text-align:center;
+              letter-spacing:5px;
+              margin:20px 0;">
+              ${otp}
+            </div>
+
+            <p>This OTP will expire in <strong>5 minutes</strong>.</p>
+
+            <p>If you did not request this, please ignore this email.</p>
+
+          </div>
+        </div>
+      `,
+    });
+
+    console.log("OTP Email Sent:", response.messageId);
 
     return response;
   } catch (error) {
-    console.error(
-      "Brevo Email Error:",
-      error.response?.body || error.message || error
-    );
+    console.error("OTP Email Error:", error);
     throw error;
   }
 };
 
 /**
- * Send OTP Email
+ * Send API Key Email
  */
-export const sendOTP = async (email, otp) => {
-  return sendEmail({
-    to: email,
-    subject: "Manufacturer Email Verification OTP",
-    html: `
-      <h2>Email Verification</h2>
 
-      <p>Use the OTP below to verify your email.</p>
+export const sendApiKey = async (email,apiKey,companyName,adminName) => {
+  try {
+    const response = await transporter.sendMail({
+      from: `"DMS System" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "Your API Key",
+      html: `
+        <div style="font-family: Arial; padding:20px;">
 
-      <div style="
-        background:#f4f4f4;
-        padding:18px;
-        border-radius:8px;
-        font-size:30px;
-        font-weight:bold;
-        text-align:center;
-        letter-spacing:5px;
-        margin:20px 0;">
-        ${otp}
-      </div>
+          <h2>Welcome ${adminName}</h2>
 
-      <p>This OTP will expire in <strong>5 minutes</strong>.</p>
+          <p>
+            Your account for
+            <strong>${companyName}</strong>
+            has been created successfully.
+          </p>
 
-      <p>If you did not request this, please ignore this email.</p>
-    `,
-  });
+          <p>Below is your API Key:</p>
+
+          <div style="
+            background:#f4f4f4;
+            padding:15px;
+            border-radius:5px;
+            word-break:break-all;
+            font-size:15px;">
+            ${apiKey}
+          </div>
+
+          <br/>
+
+          <p>
+            Keep this API key secure.
+            Do not share it publicly.
+          </p>
+
+        </div>
+      `,
+    });
+
+    console.log("API Key Email Sent:", response.messageId);
+     
+    return response;
+  } catch (error) {
+    console.error("API Key Email Error:", error);
+    throw error;
+  }
 };
 
 /**
- * Send API Key
+ * Send Welcome / Password Email
  */
-export const sendApiKey = async (
-  email,
-  apiKey,
-  companyName,
-  adminName
-) => {
-  return sendEmail({
-    to: email,
-    subject: "Your API Key",
-    html: `
-      <h2>Welcome ${adminName}</h2>
+export const sendOnboardMessage = async (email,password,companyName,adminName) => {
+  try {
+    const response = await transporter.sendMail({
+      from: `"DMS System" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: "DMS Manufacturer Onboarding",
+      html: `
+        <div style="font-family: Arial; padding:20px;">
 
-      <p>
-        Your account for
-        <strong>${companyName}</strong>
-        has been created successfully.
-      </p>
+          <h2>Welcome ${adminName}</h2>
 
-      <p>Below is your API Key:</p>
+          <p>
+            Your account for
+            <strong>${companyName}</strong>
+            has been created successfully.
+          </p>
 
-      <div style="
-        background:#f4f4f4;
-        padding:15px;
-        border-radius:5px;
-        word-break:break-all;
-        font-size:15px;">
-        ${apiKey}
-      </div>
+          <p>Temporary Password:</p>
 
-      <br/>
+          <div style="
+            background:#f4f4f4;
+            padding:15px;
+            border-radius:5px;
+            word-break:break-all;
+            font-size:15px;">
+            ${password}
+          </div>
 
-      <p>
-        Keep this API key secure.
-        Do not share it publicly.
-      </p>
-    `,
-  });
+          <br/>
+
+          <p>
+            Please change your password after first login.
+          </p>
+
+        </div>
+      `,
+    });
+
+    console.log("Onboarding Email Sent:", response.messageId);
+
+    return response;
+  } catch (error) {
+    console.error("Password Email Error:", error);
+    throw error;
+  }
 };
 
-/**
- * Send Welcome Password
- */
-export const sendOnboardMessage = async (
-  email,
-  password,
-  companyName,
-  adminName
-) => {
-  return sendEmail({
-    to: email,
-    subject: "DMS Manufacturer Onboarding",
-    html: `
-      <h2>Welcome ${adminName}</h2>
-
-      <p>
-        Your account for
-        <strong>${companyName}</strong>
-        has been created successfully.
-      </p>
-
-      <p>Temporary Password:</p>
-
-      <div style="
-        background:#f4f4f4;
-        padding:15px;
-        border-radius:5px;
-        word-break:break-all;
-        font-size:15px;">
-        ${password}
-      </div>
-
-      <br/>
-
-      <p>
-        Please change your password after first login.
-      </p>
-    `,
-  });
-};
-
-/**
- * Old Email Notification
- */
-export const sendOldEmailNotification = async (
-  oldEmail,
-  newEmail
-) => {
-  return sendEmail({
+export const sendOldEmailNotification = async (oldEmail,newEmail) => {
+  await transporter.sendMail({
+    from: `"DMS System" <${process.env.EMAIL_USER}>`,
     to: oldEmail,
     subject: "Email Changed",
     html: `
@@ -483,20 +256,17 @@ export const sendOldEmailNotification = async (
     `,
   });
 };
-
-/**
- * New Email Notification
- */
-export const sendNewEmailNotification = async (
-  email
-) => {
-  return sendEmail({
+export const sendNewEmailNotification = async (email) => {
+  await transporter.sendMail({
+    from: `"DMS System" <${process.env.EMAIL_USER}>`,
     to: email,
     subject: "Email Updated Successfully",
     html: `
       <h2>Email Updated</h2>
 
-      <p>Your email has been updated successfully.</p>
+      <p>
+        Your email has been updated successfully.
+      </p>
 
       <p>
         You can now login using:
@@ -506,36 +276,39 @@ export const sendNewEmailNotification = async (
   });
 };
 
-/**
- * Password Changed Notification
- */
-export const sendPasswordChangedNotification = async (
-  email
-) => {
-  return sendEmail({
-    to: email,
-    subject: "Password Changed",
-    html: `
-      <h2>Password Changed</h2>
+export const sendPasswordChangedNotification = async ( email)=>{
 
-      <p>Your account password has been changed.</p>
+await transporter.sendMail({
 
-      <p>
-        If you did not perform this action,
-        contact support immediately.
-      </p>
-    `,
-  });
+from:`"DMS System"<${process.env.EMAIL_USER}>`,
+
+to:email,
+
+subject:"Password Changed",
+
+html:
+`
+<h2>Password Changed</h2>
+
+<p>
+
+Your account password has been changed.
+
+</p>
+
+<p>
+
+If you did not perform this action, contact support
+immediately.
+
+</p>
+`
+});
+
 };
-
-/**
- * Email Change Verification Link
- */
-export const sendEmailChangeLink = async (
-  email,
-  link
-) => {
-  return sendEmail({
+export const sendEmailChangeLink = async (email, link) => {
+  return transporter.sendMail({
+    from: `${"DMS System".bold()} <${process.env.EMAIL_USER}>`,
     to: email,
     subject: "Verify your new email",
     html: `
@@ -543,22 +316,21 @@ export const sendEmailChangeLink = async (
 
       <p>You requested to change your email.</p>
 
-      <p>Click below to confirm:</p>
+      <p>Click below link to confirm:</p>
 
-      <a href="${link}"
-      style="
-      display:inline-block;
-      padding:10px 20px;
-      background:#4CAF50;
-      color:white;
-      text-decoration:none;
-      border-radius:5px;">
-      Verify Email
+      <a href="${link}" style="
+        display:inline-block;
+        padding:10px 20px;
+        background:#4CAF50;
+        color:white;
+        text-decoration:none;
+        border-radius:5px;">
+        Verify Email
       </a>
 
       <p>This link expires in 15 minutes.</p>
 
       <p>If this wasn't you, ignore this email.</p>
-    `,
+    `
   });
 };
